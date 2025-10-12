@@ -64,12 +64,12 @@ const Credits = () => (
                 The {APP_NAME} project is made possible by the work of many volunteers.
             </p>
         </section>
-        {APP_NAME !== 'TurboWarp' && (
+        {APP_NAME !== 'WTFWarp' && (
             // Be kind and considerate. Don't remove this :)
             <section>
-                <h2>TurboWarp</h2>
+                <h2>WTFWarp</h2>
                 <p>
-                    {APP_NAME} is based on <a href="https://turbowarp.org/">TurboWarp</a>.
+                    {APP_NAME} is based on <a href="https://WTFWarp.org/">WTFWarp</a>.
                 </p>
             </section>
         )}
@@ -93,7 +93,7 @@ const Credits = () => (
             <UserList users={UserData.addonDevelopers} />
         </section>
         <section>
-            <h2>TurboWarp Extension Gallery</h2>
+            <h2>WTFWarp Extension Gallery</h2>
             <UserList users={UserData.extensionDevelopers} />
         </section>
         <section>

@@ -1,75 +1,83 @@
 const guiColors = {
     'color-scheme': 'dark',
 
-    'ui-primary': '#111111',
-    'ui-secondary': '#1e1e1e',
-    'ui-tertiary': '#2e2e2e',
+    // 现代化的深色背景层次 - 使用更精致的灰色调
+    'ui-primary': '#0a0a0a',
+    'ui-secondary': '#1a1a1a',
+    'ui-tertiary': '#2a2a2a',
 
-    'ui-modal-overlay': '#333333aa',
-    'ui-modal-background': '#111111',
-    'ui-modal-foreground': '#eeeeee',
-    'ui-modal-header-background': '#333333',
+    // 现代化的模态框颜色
+    'ui-modal-overlay': 'rgba(0, 0, 0, 0.7)',
+    'ui-modal-background': '#1a1a1a',
+    'ui-modal-foreground': '#f0f0f0',
+    'ui-modal-header-background': '#2a2a2a',
     'ui-modal-header-foreground': '#ffffff',
 
-    'ui-white': '#111111',
+    'ui-white': '#0a0a0a',
 
-    'ui-black-transparent': '#ffffff26',
+    'ui-black-transparent': 'rgba(255, 255, 255, 0.15)',
 
-    'text-primary': '#eeeeee',
+    // 更现代的文本颜色 - 使用更亮的白色提高可读性
+    'text-primary': '#f0f0f0',
 
-    'menu-bar-background': '#333333',
+    // 现代化的菜单栏
+    'menu-bar-background': '#2a2a2a',
 
-    'assets-background': '#111111',
+    'assets-background': '#0a0a0a',
 
-    'input-background': '#1e1e1e',
+    // 更现代的输入框背景
+    'input-background': '#1a1a1a',
 
-    'popover-background': '#1e1e1e',
+    'popover-background': '#1a1a1a',
 
-    'badge-background': '#16202c',
-    'badge-border': '#203652',
+    // 现代化的徽章颜色 - 使用更鲜艳的蓝色调
+    'badge-background': '#1a2332',
+    'badge-border': '#2a3441',
 
-    'fullscreen-background': '#111111',
-    'fullscreen-accent': '#111111',
+    'fullscreen-background': '#0a0a0a',
+    'fullscreen-accent': '#0a0a0a',
 
-    'page-background': '#111111',
-    'page-foreground': '#eeeeee',
+    'page-background': '#0a0a0a',
+    'page-foreground': '#f0f0f0',
 
     'project-title-inactive': 'var(--ui-secondary)',
-    'project-title-hover': '#ffffff3f',
+    'project-title-hover': 'rgba(255, 255, 255, 0.25)',
 
-    'link-color': '#44aaff',
+    // 更现代的链接颜色 - 使用更亮的蓝色
+    'link-color': '#4da6ff',
 
     'filter-icon-black': 'invert(100%)',
-    'filter-icon-gray': 'grayscale(100%) brightness(1.7)',
+    'filter-icon-gray': 'grayscale(100%) brightness(1.8)',
     'filter-icon-white': 'brightness(0) invert(100%)',
 
-    'paint-filter-icon-gray': 'brightness(1.7)'
+    'paint-filter-icon-gray': 'brightness(1.8)'
 };
 
 const blockColors = {
-    insertionMarker: '#cccccc',
-    workspace: '#1e1e1e',
-    toolboxSelected: '#1e1e1e',
-    toolboxText: '#cccccc',
-    toolbox: '#111111',
-    flyout: '#111111',
-    scrollbar: '#666666',
-    valueReportBackground: '#1e1e1e',
-    valueReportBorder: '#333333',
-    valueReportForeground: '#eeeeee',
-    contextMenuBackground: '#111111',
-    contextMenuBorder: '#ffffff26',
-    contextMenuForeground: '#eeeeee',
-    contextMenuActiveBackground: '#2e2e2e',
-    contextMenuDisabledForeground: '#666666',
-    flyoutLabelColor: '#cccccc',
-    checkboxInactiveBackground: '#222222',
-    checkboxInactiveBorder: '#c8c8c8',
-    buttonBorder: '#c6c6c6',
-    buttonActiveBackground: '#222222',
-    buttonForeground: '#cccccc',
+    // 更现代的块编辑器颜色 - 使用更深的色调和更好的对比度
+    insertionMarker: '#e0e0e0',
+    workspace: '#1a1a1a',
+    toolboxSelected: '#1a1a1a',
+    toolboxText: '#e0e0e0',
+    toolbox: '#0a0a0a',
+    flyout: '#0a0a0a',
+    scrollbar: '#777777',
+    valueReportBackground: '#1a1a1a',
+    valueReportBorder: '#2a2a2a',
+    valueReportForeground: '#f0f0f0',
+    contextMenuBackground: '#0a0a0a',
+    contextMenuBorder: 'rgba(255, 255, 255, 0.15)',
+    contextMenuForeground: '#f0f0f0',
+    contextMenuActiveBackground: '#2a2a2a',
+    contextMenuDisabledForeground: '#777777',
+    flyoutLabelColor: '#e0e0e0',
+    checkboxInactiveBackground: '#1a1a1a',
+    checkboxInactiveBorder: '#d0d0d0',
+    buttonBorder: '#d0d0d0',
+    buttonActiveBackground: '#1a1a1a',
+    buttonForeground: '#e0e0e0',
     zoomIconFilter: 'invert(100%)',
-    gridColor: '#484848'
+    gridColor: '#555555'
 };
 
 export {

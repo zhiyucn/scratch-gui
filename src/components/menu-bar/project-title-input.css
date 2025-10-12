@@ -9,41 +9,44 @@ can set a width for example or what it should do in a flex box (eg. grow).
 */
 
 .title-field {
-    border: 1px dashed $ui-black-transparent;
-    border-radius: $form-radius;
-    -webkit-border-radius: $form-radius;
-    -moz-border-radius: $form-radius;
-    background-color: $project-title-inactive;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* 更现代的边框 */
+    border-radius: 6px; /* 更现代的圆角 */
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.1); /* 半透明背景 */
     background-clip: padding-box;
     -webkit-background-clip: padding-box;
     height: auto;
-    padding: .5rem;
+    padding: 0.75rem; /* 增加内边距 */
+    transition: all 0.2s ease; /* 添加过渡效果 */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; /* 更现代的字体 */
 }
 
 .title-field {
     color: $menu-bar-foreground;
-    font-weight: bold;
-    font-size: .8rem;
+    font-weight: 500; /* 中等字重 */
+    font-size: 0.875rem; /* 稍大的字体 */
 }
 
 .title-field::placeholder {
     color: $menu-bar-foreground;
-    opacity: 0.8;
-    font-weight: normal;
-    font-size: .8rem;
-    font-style: italic;
+    opacity: 0.6; /* 降低不透明度 */
+    font-weight: 400; /* 正常字重 */
+    font-size: 0.875rem; /* 与输入文本一致 */
+    font-style: normal; /* 移除斜体 */
 }
 
 .title-field:hover {
-    background-color: $project-title-hover;
-    border-color: $ui-black-transparent; /* dont use hover border from custom input */
+    background-color: rgba(255, 255, 255, 0.15); /* 更微妙的悬停背景 */
+    border-color: rgba(255, 255, 255, 0.4); /* 更明显的悬停边框 */
+    transform: translateY(-1px); /* 悬停时轻微上升 */
 }
 
 .title-field:focus {
-    outline:none;
-    border: 1px solid $ui-transparent;
-    -webkit-box-shadow: 0 0 0 calc($space * .5) $ui-white-transparent-default;
-    box-shadow: 0 0 0 calc($space * .5) $ui-white-transparent-default;
-    background-color: $ui-white;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.6); /* 更现代的聚焦边框 */
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2); /* 更现代的发光效果 */
+    background-color: rgba(255, 255, 255, 0.2); /* 更明显的聚焦背景 */
     color: $text-primary;
+    transform: translateY(-1px); /* 聚焦时轻微上升 */
 }

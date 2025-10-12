@@ -11,6 +11,7 @@
     z-index: $z-index-modal;
     background-color: $ui-modal-overlay;
     color: $ui-modal-foreground;
+    backdrop-filter: blur(8px); /* 添加毛玻璃效果 */
 }
 
 .modal-content * {
@@ -20,13 +21,14 @@
 .modal-content {
     margin: 100px auto;
     outline: none;
-    border: 4px solid $ui-white-transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 更细的边框 */
     padding: 0;
-    border-radius: $space;
+    border-radius: 12px; /* 更大的圆角 */
     user-select: none;
-
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* 更现代的阴影 */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; /* 更现代的字体栈 */
     overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* 添加过渡效果 */
 }
 
 .modal-content.full-screen {
@@ -63,24 +65,31 @@ $sides: 20rem;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    height: $library-header-height;
+    height: 3.5rem; /* 更现代的高度 */
 
     box-sizing: border-box;
     width: 100%;
     background-color: $ui-modal-header-background;
     color: $ui-modal-header-foreground;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 添加分隔线 */
 
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1rem;
-    font-weight: normal;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-size: 1.1rem; /* 稍大的字体 */
+    font-weight: 500; /* 中等字重 */
+    letter-spacing: -0.02em; /* 更紧凑的字距 */
 }
 
 .header-item {
     display: flex;
     align-items: center;
-    padding: 1rem;
+    padding: 0 1.25rem; /* 更平衡的间距 */
     text-decoration: none;
     user-select: none;
+    transition: background-color 0.15s ease; /* 添加悬停过渡 */
+}
+
+.header-item:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* 悬停效果 */
 }
 
 [dir="ltr"] .header-image {
@@ -102,8 +111,11 @@ $sides: 20rem;
     flex-shrink: 0;
     justify-content: center;
     user-select: none;
-    letter-spacing: 0.4px;
+    letter-spacing: -0.01em; /* 更现代的字距 */
     cursor: default;
+    font-weight: 600; /* 稍粗的标题 */
+    font-size: 1.2rem; /* 稍大的标题字体 */
+    color: rgba(255, 255, 255, 0.95); /* 稍微柔和的标题颜色 */
 }
 
 [dir="ltr"] .header-item-title {
@@ -157,8 +169,14 @@ $sides: 20rem;
 }
 
 .help-button {
-    font-weight: normal;
-    font-size: 0.75rem;
+    font-weight: 500; /* 中等字重 */
+    font-size: 0.875rem; /* 稍大的字体 */
+    color: rgba(255, 255, 255, 0.8); /* 柔和的链接颜色 */
+    transition: color 0.15s ease; /* 添加过渡效果 */
+}
+
+.help-button:hover {
+    color: rgba(255, 255, 255, 1); /* 悬停时更亮 */
 }
 
 [dir="ltr"] .help-button {

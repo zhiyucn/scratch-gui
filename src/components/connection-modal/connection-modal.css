@@ -4,14 +4,24 @@
 .modal-content {
     width: 480px;
     line-height: 1.75;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 更细的边框 */
+    border-radius: 12px; /* 更大的圆角 */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* 更现代的阴影 */
+    overflow: hidden; /* 确保圆角生效 */
 }
 
 .header {
     background-color: $pen-tertiary;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 添加分隔线 */
+    height: 3.5rem; /* 更现代的高度 */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-weight: 500; /* 中等字重 */
 }
 
 .body {
     background: $ui-modal-background;
+    padding: 2rem; /* 更平衡的间距 */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 .label {
@@ -38,12 +48,20 @@
     justify-content: space-between;
     align-items: center;
 
-    background-color: $ui-white;
-    border-radius: 0.25rem;
-    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05); /* 半透明背景 */
+    border-radius: 8px; /* 更大的圆角 */
+    padding: 1rem; /* 更舒适的间距 */
     width: 100%;
-    height: 55px;
-    margin-bottom: 0.5rem;
+    height: auto; /* 自动高度 */
+    min-height: 60px; /* 最小高度 */
+    margin-bottom: 0.75rem; /* 更大的间距 */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 添加边框 */
+    transition: all 0.2s ease; /* 添加过渡效果 */
+}
+
+.peripheral-tile:hover {
+    background-color: rgba(255, 255, 255, 0.08); /* 悬停效果 */
+    transform: translateY(-1px); /* 轻微上升 */
 }
 
 .peripheral-tile-name {
@@ -76,15 +94,21 @@
 }
 
 .peripheral-tile button {
-    padding: 0.6rem 0.75rem;
+    padding: 0.75rem 1.25rem; /* 更现代的按钮尺寸 */
     border: none;
-    border-radius: 0.25rem;
-    font-weight: 600;
-    font-size: 0.85rem;
+    border-radius: 8px; /* 更大的圆角 */
+    font-weight: 500; /* 中等字重 */
+    font-size: 0.875rem; /* 稍大的字体 */
     background: $looks-secondary;
-    border: $looks-secondary;
     color: white;
     cursor: pointer;
+    transition: all 0.2s ease; /* 添加过渡效果 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* 添加阴影 */
+}
+
+.peripheral-tile button:hover {
+    transform: translateY(-1px); /* 悬停时轻微上升 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 更深的阴影 */
 }
 
 .signal-strength-meter {

@@ -279,7 +279,7 @@ a:active, a:focus {
 
 .switch {
     display: block;
-    background: #333;
+    background: #2a2a2a; /* 更新为现代化暗色主题颜色 */
     width: 40px;
     height: 22px;
     border: 1px solid $ui-black-transparent;
@@ -323,7 +323,7 @@ a:active, a:focus {
     border-radius: 4px;
     padding: 2px 5px;
     margin-left: 10px;
-    border-bottom: 2px solid #111;
+    border-bottom: 2px solid #0a0a0a; /* 更新为现代化暗色主题颜色 */
     white-space: nowrap;
 }
 .tag-recommended {

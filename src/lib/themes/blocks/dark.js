@@ -1,93 +1,109 @@
 import {hex2hsv, hsv2hex} from '../../tw-color-utils';
 
 const blockColors = {
+    // 现代化的运动块颜色 - 使用更深的蓝色调
     motion: {
-        primary: '#0F1E33',
-        secondary: '#4C4C4C',
+        primary: '#0d1a2e',
+        secondary: '#2a2a2a',
         tertiary: '#4C97FF',
         quaternary: '#4C97FF'
     },
+    // 现代化的外观块颜色 - 使用更深的紫色调
     looks: {
-        primary: '#1E1433',
-        secondary: '#4C4C4C',
+        primary: '#1a1233',
+        secondary: '#2a2a2a',
         tertiary: '#9966FF',
         quaternary: '#9966FF'
     },
+    // 现代化的声音块颜色 - 使用更深的粉色调
     sounds: {
-        primary: '#291329',
-        secondary: '#4C4C4C',
+        primary: '#241224',
+        secondary: '#2a2a2a',
         tertiary: '#CF63CF',
         quaternary: '#CF63CF'
     },
+    // 现代化的控制块颜色 - 使用更深的橙色调
     control: {
-        primary: '#332205',
-        secondary: '#4C4C4C',
+        primary: '#2a1e05',
+        secondary: '#2a2a2a',
         tertiary: '#FFAB19',
         quaternary: '#FFAB19'
     },
+    // 现代化的事件块颜色 - 使用更深的黄色调
     event: {
-        primary: '#332600',
-        secondary: '#4C4C4C',
+        primary: '#2d2200',
+        secondary: '#2a2a2a',
         tertiary: '#FFBF00',
         quaternary: '#FFBF00'
     },
+    // 现代化的侦测块颜色 - 使用更深的青色调
     sensing: {
-        primary: '#12232A',
-        secondary: '#4C4C4C',
+        primary: '#0f1f26',
+        secondary: '#2a2a2a',
         tertiary: '#5CB1D6',
         quaternary: '#5CB1D6'
     },
+    // 现代化的画笔块颜色 - 使用更深的绿色调
     pen: {
-        primary: '#03251C',
-        secondary: '#4C4C4C',
+        primary: '#022017',
+        secondary: '#2a2a2a',
         tertiary: '#0fBD8C',
         quaternary: '#0fBD8C'
     },
+    // 现代化的运算块颜色 - 使用更深的绿色调
     operators: {
-        primary: '#112611',
-        secondary: '#4C4C4C',
+        primary: '#0d1f0d',
+        secondary: '#2a2a2a',
         tertiary: '#59C059',
         quaternary: '#59C059'
     },
+    // 现代化的数据块颜色 - 使用更深的橙色调
     data: {
-        primary: '#331C05',
-        secondary: '#4C4C4C',
+        primary: '#2a1604',
+        secondary: '#2a2a2a',
         tertiary: '#FF8C1A',
         quaternary: '#FF8C1A'
     },
+    // 现代化的列表块颜色 - 使用更深的红橙色调
     data_lists: {
-        primary: '#331405',
-        secondary: '#4C4C4C',
+        primary: '#2a1004',
+        secondary: '#2a2a2a',
         tertiary: '#FF661A',
         quaternary: '#FF661A'
     },
+    // 现代化的更多块颜色 - 使用更深的粉色调
     more: {
-        primary: '#331419',
-        secondary: '#4C4C4C',
+        primary: '#2a0f15',
+        secondary: '#2a2a2a',
         tertiary: '#FF6680',
         quaternary: '#FF6680'
     },
+    // 现代化的插件块颜色 - 使用更深的青色调
     addons: {
-        primary: '#0b3331',
-        secondary: '#4C4C4C',
+        primary: '#082522',
+        secondary: '#2a2a2a',
         tertiary: '#34e4d0',
         quaternary: '#34e4d0'
     },
-    text: 'rgba(255, 255, 255, .7)',
-    textFieldText: '#E5E5E5',
-    textField: '#4C4C4C',
-    menuHover: 'rgba(255, 255, 255, 0.3)'
+    // 更现代的文本颜色 - 提高可读性
+    text: 'rgba(255, 255, 255, 0.85)',
+    textFieldText: '#f0f0f0',
+    textField: '#2a2a2a',
+    menuHover: 'rgba(255, 255, 255, 0.2)'
 };
 
 const extensions = {};
 
 const customExtensionColors = {
+    // 现代化的自定义扩展颜色处理 - 更智能的暗色调算法
     primary: primary => {
         const hsv = hex2hsv(primary);
-        hsv[2] = Math.max(hsv[2] - 70, 20);
+        // 在暗色主题中，我们减少亮度但保持饱和度
+        hsv[2] = Math.max(hsv[2] - 60, 15);
+        hsv[1] = Math.min(hsv[1] + 10, 100); // 稍微增加饱和度
         return hsv2hex(hsv);
     },
-    secondary: () => '#4C4C4C',
+    secondary: () => '#2a2a2a',
     tertiary: primary => primary,
     quaternary: primary => primary,
     categoryIconBackground: primary => customExtensionColors.primary(primary),

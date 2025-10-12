@@ -27,13 +27,26 @@
 .variable-name-text-input {
     margin-bottom: 1.5rem;
     width: 100%;
-    border: 1px solid $ui-black-transparent;
-    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 更细的边框 */
+    border-radius: 8px; /* 更大的圆角 */
     padding: 0 1rem;
-    height: 3rem;
-    color: $text-primary-transparent;
-    background-color: $input-background;
-    font-size: .875rem;
+    height: 2.5rem; /* 降低高度 */
+    color: $text-primary; /* 使用主要文本颜色 */
+    background-color: rgba(255, 255, 255, 0.05); /* 半透明背景 */
+    font-size: 0.875rem;
+    transition: all 0.2s ease; /* 添加过渡效果 */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; /* 更现代的字体 */
+}
+
+.variable-name-text-input:hover {
+    border-color: rgba(255, 255, 255, 0.2); /* 悬停时更明显的边框 */
+    background-color: rgba(255, 255, 255, 0.08); /* 悬停时更明显的背景 */
+}
+
+.variable-name-text-input:focus {
+    border-color: $looks-secondary; /* 聚焦时使用主题色 */
+    box-shadow: 0 0 0 3px rgba($looks-secondary, 0.2); /* 更现代的发光效果 */
+    outline: none;
 }
 
 .info-message {

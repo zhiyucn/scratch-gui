@@ -11,19 +11,22 @@
     bottom: 0;
     z-index: $z-index-modal;
     background-color: $ui-modal-overlay;
+    backdrop-filter: blur(8px); /* 添加毛玻璃效果 */
 }
 
 .modal-content {
     margin: 100px auto;
     outline: none;
-    border: .25rem solid $ui-white-transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 更细的边框 */
     padding: 0;
-    border-radius: $space;
+    border-radius: 12px; /* 更大的圆角 */
     user-select: none;
     width: 500px;
 
     color: $text-primary;
     overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* 更现代的阴影 */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; /* 更现代的字体 */
 }
 
 .illustration {
@@ -63,10 +66,18 @@
 
 .desktop-settings-inner {
     font: inherit;
-    font-weight: bold;
-    padding: 0.75rem 1rem;
-    border-radius: 0.25rem;
-    border: 1px solid $ui-black-transparent;
+    font-weight: 500; /* 中等字重 */
+    padding: 0.875rem 1.5rem; /* 更现代的按钮尺寸 */
+    border-radius: 8px; /* 更大的圆角 */
+    border: none; /* 移除边框 */
     background-color: $looks-secondary;
     color: white;
+    cursor: pointer;
+    transition: all 0.2s ease; /* 添加过渡效果 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* 添加阴影 */
+}
+
+.desktop-settings-inner:hover {
+    transform: translateY(-1px); /* 悬停时轻微上升 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 更深的阴影 */
 }
