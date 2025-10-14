@@ -325,6 +325,28 @@ const DisableCompiler = props => (
     />
 );
 
+const ForceUnsandboxedExtensions = props => (
+    <BooleanSetting
+        {...props}
+        label={
+            <FormattedMessage
+                defaultMessage="Force Unsandboxed Extensions"
+                description="Force unsandboxed extensions setting"
+                id="tw.settingsModal.forceUnsandboxedExtensions"
+            />
+        }
+        help={
+            <FormattedMessage
+                // eslint-disable-next-line max-len
+                defaultMessage="Forces all extensions to load in unsandboxed mode. This removes security restrictions but may cause compatibility issues. Use with caution."
+                description="Force unsandboxed extensions help"
+                id="tw.settingsModal.forceUnsandboxedExtensionsHelp"
+            />
+        }
+        slug="force-unsandboxed-extensions"
+    />
+);
+
 const CustomStageSize = ({
     customStageSizeEnabled,
     stageWidth,
@@ -499,6 +521,10 @@ const SettingsModalComponent = props => (
                 value={props.disableCompiler}
                 onChange={props.onDisableCompilerChange}
             />
+            <ForceUnsandboxedExtensions
+                value={props.forceUnsandboxedExtensions}
+                onChange={props.onForceUnsandboxedExtensionsChange}
+            />
             {!props.isEmbedded && (
                 <StoreProjectOptions
                     {...props}
@@ -528,7 +554,9 @@ SettingsModalComponent.propTypes = {
     warpTimer: PropTypes.bool,
     onWarpTimerChange: PropTypes.func,
     disableCompiler: PropTypes.bool,
-    onDisableCompilerChange: PropTypes.func
+    onDisableCompilerChange: PropTypes.func,
+    forceUnsandboxedExtensions: PropTypes.bool,
+    onForceUnsandboxedExtensionsChange: PropTypes.func
 };
 
 export default injectIntl(SettingsModalComponent);

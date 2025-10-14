@@ -233,6 +233,12 @@ class TWSecurityManagerComponent extends React.Component {
      * @returns {string} The VM worker mode to use
      */
     getSandboxMode (url) {
+        // 如果启用了强制非沙盒模式，所有扩展都使用非沙盒模式
+        if (this.props.forceUnsandboxedExtensions) {
+            log.info(`Loading extension ${url} unsandboxed (forced by setting)`);
+            return 'unsandboxed';
+        }
+        
         if (isTrustedExtension(url)) {
             log.info(`Loading extension ${url} unsandboxed`);
             return 'unsandboxed';
@@ -463,7 +469,8 @@ TWSecurityManagerComponent.propTypes = {
             ).isRequired
         }).isRequired
     }).isRequired,
-    securityManager: PropTypes.shape(Object.fromEntries(SECURITY_MANAGER_METHODS.map(i => [i, PropTypes.func])))
+    securityManager: PropTypes.shape(Object.fromEntries(SECURITY_MANAGER_METHODS.map(i => [i, PropTypes.func]))),
+    forceUnsandboxedExtensions: PropTypes.bool
 };
 
 TWSecurityManagerComponent.defaultProps = {
@@ -471,7 +478,8 @@ TWSecurityManagerComponent.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-    vm: state.scratchGui.vm
+    vm: state.scratchGui.vm,
+    forceUnsandboxedExtensions: state.scratchGui.tw.forceUnsandboxedExtensions
 });
 
 const mapDispatchToProps = () => ({});

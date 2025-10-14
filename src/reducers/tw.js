@@ -17,6 +17,7 @@ const SET_HAS_CLOUD_VARIABLES = 'tw/SET_HAS_CLOUD_VARIABLES';
 const SET_CLOUD_HOST = 'tw/SET_CLOUD_HOST';
 const SET_PLATFORM_MISMATCH_DETAILS = 'tw/SET_PLATFORM_MISMATCH_DETAILS';
 const SET_PROJECT_ERROR = 'tw/SET_PROJECT_ERROR';
+const SET_FORCE_UNSANDBOXED_EXTENSIONS = 'tw/SET_FORCE_UNSANDBOXED_EXTENSIONS';
 
 export const initialState = {
     framerate: 30,
@@ -52,7 +53,8 @@ export const initialState = {
         platform: null,
         callback: null
     },
-    projectError: null
+    projectError: null,
+    forceUnsandboxedExtensions: false
 };
 
 const reducer = function (state, action) {
@@ -139,6 +141,10 @@ const reducer = function (state, action) {
     case SET_PROJECT_ERROR:
         return Object.assign({}, state, {
             projectError: action.projectError
+        });
+    case SET_FORCE_UNSANDBOXED_EXTENSIONS:
+        return Object.assign({}, state, {
+            forceUnsandboxedExtensions: action.forceUnsandboxedExtensions
         });
     default:
         return state;
@@ -274,7 +280,14 @@ const setPlatformMismatchDetails = function (platform, callback) {
 const setProjectError = function (projectError) {
     return {
         type: SET_PROJECT_ERROR,
-        projectError
+        projectError: projectError
+    };
+};
+
+const setForceUnsandboxedExtensions = function (forceUnsandboxedExtensions) {
+    return {
+        type: SET_FORCE_UNSANDBOXED_EXTENSIONS,
+        forceUnsandboxedExtensions: forceUnsandboxedExtensions
     };
 };
 
@@ -299,5 +312,6 @@ export {
     setHasCloudVariables,
     setCloudHost,
     setPlatformMismatchDetails,
-    setProjectError
+    setProjectError,
+    setForceUnsandboxedExtensions
 };

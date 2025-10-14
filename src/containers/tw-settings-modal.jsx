@@ -4,6 +4,7 @@ import {defineMessages, injectIntl, intlShape} from 'react-intl';
 import bindAll from 'lodash.bindall';
 import {connect} from 'react-redux';
 import {closeSettingsModal} from '../reducers/modals';
+import {setForceUnsandboxedExtensions} from '../reducers/tw';
 import SettingsModalComponent from '../components/tw-settings-modal/settings-modal.jsx';
 import {defaultStageSize} from '../reducers/custom-stage-size';
 
@@ -30,6 +31,7 @@ class UsernameModal extends React.Component {
             'handleStageWidthChange',
             'handleStageHeightChange',
             'handleDisableCompilerChange',
+            'handleForceUnsandboxedExtensionsChange',
             'handleStoreProjectOptions'
         ]);
     }
@@ -76,6 +78,9 @@ class UsernameModal extends React.Component {
             enabled: !e.target.checked
         });
     }
+    handleForceUnsandboxedExtensionsChange (e) {
+        this.props.onSetForceUnsandboxedExtensions(e.target.checked);
+    }
     handleStageWidthChange (value) {
         this.props.vm.setStageSize(value, this.props.customStageSize.height);
     }
@@ -107,12 +112,14 @@ class UsernameModal extends React.Component {
                 onStageWidthChange={this.handleStageWidthChange}
                 onStageHeightChange={this.handleStageHeightChange}
                 onDisableCompilerChange={this.handleDisableCompilerChange}
+                onForceUnsandboxedExtensionsChange={this.handleForceUnsandboxedExtensionsChange}
                 stageWidth={this.props.customStageSize.width}
                 stageHeight={this.props.customStageSize.height}
                 customStageSizeEnabled={
                     this.props.customStageSize.width !== defaultStageSize.width ||
                     this.props.customStageSize.height !== defaultStageSize.height
                 }
+                forceUnsandboxedExtensions={this.props.forceUnsandboxedExtensions}
                 onStoreProjectOptions={this.handleStoreProjectOptions}
                 {...props}
             />
@@ -146,7 +153,9 @@ UsernameModal.propTypes = {
         width: PropTypes.number,
         height: PropTypes.number
     }),
-    disableCompiler: PropTypes.bool
+    disableCompiler: PropTypes.bool,
+    forceUnsandboxedExtensions: PropTypes.bool,
+    onSetForceUnsandboxedExtensions: PropTypes.func
 };
 
 const mapStateToProps = state => ({
@@ -160,11 +169,15 @@ const mapStateToProps = state => ({
     removeLimits: !state.scratchGui.tw.runtimeOptions.miscLimits,
     warpTimer: state.scratchGui.tw.compilerOptions.warpTimer,
     customStageSize: state.scratchGui.customStageSize,
-    disableCompiler: !state.scratchGui.tw.compilerOptions.enabled
+    disableCompiler: !state.scratchGui.tw.compilerOptions.enabled,
+    forceUnsandboxedExtensions: state.scratchGui.tw.forceUnsandboxedExtensions
 });
 
 const mapDispatchToProps = dispatch => ({
-    onClose: () => dispatch(closeSettingsModal())
+    onClose: () => dispatch(closeSettingsModal()),
+    onSetForceUnsandboxedExtensions: forceUnsandboxed => {
+        dispatch(setForceUnsandboxedExtensions(forceUnsandboxed));
+    }
 });
 
 export default injectIntl(connect(
