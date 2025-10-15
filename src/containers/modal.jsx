@@ -54,7 +54,8 @@ Modal.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    isRtl: state.locales.isRtl
+    isRtl: state.locales.isRtl,
+    windowedModals: state.scratchGui.tw.windowedModals
 });
 
 export default connect(

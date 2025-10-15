@@ -14,6 +14,30 @@
     backdrop-filter: blur(8px); /* 添加毛玻璃效果 */
 }
 
+/* 窗口化模态框样式 */
+.windowed-overlay {
+    background-color: transparent;
+    backdrop-filter: none;
+    pointer-events: none;
+}
+
+.windowed-overlay .modal-content {
+    pointer-events: auto;
+    position: absolute;
+    margin: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid #ccc;
+}
+
+.draggable {
+    cursor: move;
+    user-select: none;
+}
+
+.draggable:active {
+    cursor: grabbing;
+}
+
 .modal-content * {
     box-sizing: border-box;
 }

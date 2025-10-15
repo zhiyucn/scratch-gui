@@ -79,7 +79,7 @@ import {
     openErrorsMenu,
     closeErrorsMenu
 } from '../../reducers/menus';
-import {setFileHandle} from '../../reducers/tw.js';
+import {setFileHandle, setWindowedModals} from '../../reducers/tw.js';
 
 import collectMetadata from '../../lib/collect-metadata';
 
@@ -227,7 +227,8 @@ class MenuBar extends React.Component {
             'handleKeyPress',
             'handleRestoreOption',
             'getSaveToComputerHandler',
-            'restoreOptionMessage'
+            'restoreOptionMessage',
+            'handleToggleWindowedModals'
         ]);
     }
     componentDidMount () {
@@ -389,6 +390,10 @@ class MenuBar extends React.Component {
     }
     handleClickSeeInside () {
         this.props.onClickSeeInside();
+    }
+    handleToggleWindowedModals () {
+        this.props.onToggleWindowedModals(!this.props.windowedModals);
+        this.props.onRequestCloseEdit();
     }
     buildAboutMenu (onClickAbout) {
         if (!onClickAbout) {
@@ -829,6 +834,21 @@ class MenuBar extends React.Component {
                                             )}
                                         </MenuItem>
                                     )}</CloudVariablesToggler>
+                                    <MenuItem onClick={this.handleToggleWindowedModals}>
+                                        {this.props.windowedModals ? (
+                                            <FormattedMessage
+                                                defaultMessage="Disable Windowed Modals"
+                                                description="Menu bar item for disabling windowed modals"
+                                                id="tw.menuBar.windowedModalsOff"
+                                            />
+                                        ) : (
+                                            <FormattedMessage
+                                                defaultMessage="Enable Windowed Modals"
+                                                description="Menu bar item for enabling windowed modals"
+                                                id="tw.menuBar.windowedModalsOn"
+                                            />
+                                        )}
+                                    </MenuItem>
                                 </MenuSection>
                                 <MenuSection>
                                     <MenuItem onClick={this.props.onClickSettingsModal}>
@@ -1153,7 +1173,9 @@ MenuBar.propTypes = {
     showComingSoon: PropTypes.bool,
     username: PropTypes.string,
     userOwnsProject: PropTypes.bool,
-    vm: PropTypes.instanceOf(VM).isRequired
+    vm: PropTypes.instanceOf(VM).isRequired,
+    windowedModals: PropTypes.bool,
+    onToggleWindowedModals: PropTypes.func
 };
 
 MenuBar.defaultProps = {
@@ -1192,7 +1214,8 @@ const mapStateToProps = (state, ownProps) => {
         mode1920: isTimeTravel1920(state),
         mode1990: isTimeTravel1990(state),
         mode2020: isTimeTravel2020(state),
-        modeNow: isTimeTravelNow(state)
+        modeNow: isTimeTravelNow(state),
+        windowedModals: state.scratchGui.tw.windowedModals
     };
 };
 
@@ -1229,7 +1252,8 @@ const mapDispatchToProps = dispatch => ({
     onClickSave: () => dispatch(manualUpdateProject()),
     onClickSaveAsCopy: () => dispatch(saveProjectAsCopy()),
     onSeeCommunity: () => dispatch(setPlayer(true)),
-    onSetTimeTravelMode: mode => dispatch(setTimeTravel(mode))
+    onSetTimeTravelMode: mode => dispatch(setTimeTravel(mode)),
+    onToggleWindowedModals: enabled => dispatch(setWindowedModals(enabled))
 });
 
 export default compose(

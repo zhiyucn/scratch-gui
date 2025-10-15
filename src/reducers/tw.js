@@ -18,6 +18,7 @@ const SET_CLOUD_HOST = 'tw/SET_CLOUD_HOST';
 const SET_PLATFORM_MISMATCH_DETAILS = 'tw/SET_PLATFORM_MISMATCH_DETAILS';
 const SET_PROJECT_ERROR = 'tw/SET_PROJECT_ERROR';
 const SET_FORCE_UNSANDBOXED_EXTENSIONS = 'tw/SET_FORCE_UNSANDBOXED_EXTENSIONS';
+const SET_WINDOWED_MODALS = 'tw/SET_WINDOWED_MODALS';
 
 export const initialState = {
     framerate: 30,
@@ -54,7 +55,8 @@ export const initialState = {
         callback: null
     },
     projectError: null,
-    forceUnsandboxedExtensions: false
+    forceUnsandboxedExtensions: false,
+    windowedModals: false
 };
 
 const reducer = function (state, action) {
@@ -145,6 +147,10 @@ const reducer = function (state, action) {
     case SET_FORCE_UNSANDBOXED_EXTENSIONS:
         return Object.assign({}, state, {
             forceUnsandboxedExtensions: action.forceUnsandboxedExtensions
+        });
+    case SET_WINDOWED_MODALS:
+        return Object.assign({}, state, {
+            windowedModals: action.windowedModals
         });
     default:
         return state;
@@ -291,6 +297,13 @@ const setForceUnsandboxedExtensions = function (forceUnsandboxedExtensions) {
     };
 };
 
+const setWindowedModals = function (windowedModals) {
+    return {
+        type: SET_WINDOWED_MODALS,
+        windowedModals: windowedModals
+    };
+};
+
 export {
     reducer as default,
     initialState as twInitialState,
@@ -313,5 +326,6 @@ export {
     setCloudHost,
     setPlatformMismatchDetails,
     setProjectError,
-    setForceUnsandboxedExtensions
+    setForceUnsandboxedExtensions,
+    setWindowedModals
 };

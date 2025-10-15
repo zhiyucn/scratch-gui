@@ -26,39 +26,39 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0  # 获取完整历史记录用于gh-pages
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-      
+
       - name: Install dependencies
         run: npm ci
-      
+
       - name: Build project
         run: npm run build
-      
+
       - name: Deploy to pages branch
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          
+
           # 创建pages分支如果不存在
           git checkout pages 2>/dev/null || git checkout -b pages
-          
+
           # 清空pages分支内容
           git rm -rf .
-          
+
           # 复制构建产物
           cp -r build/* .
-          
+
           # 添加所有文件
           git add .
-          
+
           # 提交更改
           git commit -m "Deploy to pages branch - $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
-          
+
           # 推送到pages分支
           git push origin pages
         env:
